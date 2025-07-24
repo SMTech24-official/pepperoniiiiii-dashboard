@@ -10,14 +10,16 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import logo from "../../assets/iamges/logo.png";
+import logo from "../../assets/placeholders/image_placeholder.png";
 import {
-  SquareUser,
-  UserRoundX,
   Settings,
-  ClipboardMinus,
   LayoutDashboardIcon,
-  Contact,
+  Users,
+  PackageSearch,
+  ListOrdered,
+  ChartSpline,
+  Bot,
+  ClipboardType,
 } from "lucide-react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
@@ -32,24 +34,34 @@ const items = [
     icon: LayoutDashboardIcon,
   },
   {
-    title: "Report",
-    url: "/report",
-    icon: ClipboardMinus,
+    title: "User Management",
+    url: "/user-management",
+    icon: Users,
   },
   {
-    title: "Profile",
-    url: "/profile",
-    icon: Contact,
+    title: "Product",
+    url: "/product",
+    icon: PackageSearch,
   },
   {
-    title: "User",
-    url: "/user",
-    icon: SquareUser,
+    title: "Order",
+    url: "/order",
+    icon: ListOrdered,
   },
   {
-    title: "Remove",
-    url: "/remove",
-    icon: UserRoundX,
+    title: "Content",
+    url: "/content",
+    icon: ChartSpline,
+  },
+  {
+    title: "Ai Diagnosis",
+    url: "/ai-diagnosis",
+    icon: Bot,
+  },
+  {
+    title: "Community & Forum",
+    url: "/community-forum",
+    icon: ClipboardType,
   },
   {
     title: "Setting",
@@ -70,21 +82,19 @@ const SideBar = () => {
   };
   return (
     <Sidebar>
-      <SidebarContent className="!bg-[#1C1C1C] text-white">
+      <SidebarContent className="">
         <SidebarGroup />
         <SidebarGroupLabel className="mb-14 mt-8 mx-auto">
           <Image src={logo} alt="logo" width={190} height={50} />
         </SidebarGroupLabel>
         <SidebarGroupContent>
-          <SidebarMenu className="px-4 space-y-3">
+          <SidebarMenu className="px-4 space-y-1">
             {items.map((item) => (
               <SidebarMenuItem key={item.title}>
                 <SidebarMenuButton
                   asChild
-                  className={`text-[15px] font-bold px-4 ${
-                    pathName === `${item.url}`
-                      ? "bg-white text-black rounded-lg"
-                      : "text-white"
+                  className={`text-base font-medium py-6 ${
+                    pathName === `${item.url}` ? "bg-primary text-white" : ""
                   }`}
                 >
                   <a href={item.url}>
@@ -97,16 +107,15 @@ const SideBar = () => {
           </SidebarMenu>
         </SidebarGroupContent>
         <SidebarGroup />
-
       </SidebarContent>
-      <SidebarFooter className="!bg-[#1C1C1C] text-white">
-          <button
-            onClick={handleLolgout}
-            className="py-3 border border-red-400 rounded-lg font-medium text-base"
-          >
-            Log out
-          </button>
-        </SidebarFooter>
+      <SidebarFooter className="">
+        <button
+          onClick={handleLolgout}
+          className="py-3 border border-primary rounded-lg font-medium text-base"
+        >
+          Log out
+        </button>
+      </SidebarFooter>
     </Sidebar>
   );
 };

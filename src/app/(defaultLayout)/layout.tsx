@@ -1,3 +1,4 @@
+import PageHeader from "@/components/shared/PageHeader";
 import SideBar from "@/components/shared/SideBar";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { Metadata } from "next";
@@ -13,6 +14,7 @@ const CommonLayout = ({ children }: { children: React.ReactNode }) => {
       <SideBar />
       <main className="w-full bg-[#F6F6F6]">
         <div className="max-w-[1372px] mx-auto md:py-5 md:px-0 px-3">
+                <PageHeader title="Dashboard"/>
           {children}
         </div>
       </main>

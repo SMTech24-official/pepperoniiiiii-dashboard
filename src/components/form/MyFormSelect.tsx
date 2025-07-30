@@ -42,7 +42,7 @@ const MyFormSelect = ({
       {label && (
         <label
           htmlFor={name}
-          className={cn("text-sm font-medium", labelClassName)}
+          className={cn("text-base font-normal", labelClassName)}
         >
           {label}
         </label>

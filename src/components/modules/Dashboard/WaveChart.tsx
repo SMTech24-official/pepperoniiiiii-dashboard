@@ -1,7 +1,7 @@
-// components/WaveChart.tsx
-
 "use client";
 
+import Spinner from "@/components/common/Spinner";
+import { useChartQuery } from "@/redux/features/dashboard/dashboard.api";
 import {
   AreaChart,
   Area,
@@ -12,17 +12,15 @@ import {
   Tooltip,
 } from "recharts";
 
-const data = [
-  { name: "Mon", value: 400 },
-  { name: "Tue", value: 300 },
-  { name: "Wed", value: 500 },
-  { name: "Thu", value: 250 },
-  { name: "Fri", value: 600 },
-  { name: "Sat", value: 350 },
-  { name: "Sun", value: 450 },
-];
-
 export default function WaveChart() {
+  const { data, isFetching } = useChartQuery(undefined);
+
+  if (isFetching) {
+    return <Spinner />;
+  }
+  
+  const chartData = data?.data
+
   return (
     <div className="w-full">
       <h2 className="text-xl font-bold mb-4 text-gray-800 dark:text-white">
@@ -31,7 +29,7 @@ export default function WaveChart() {
       <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-md p-6">
         <ResponsiveContainer width="100%" height={300}>
           <AreaChart
-            data={data}
+            data={chartData}
             margin={{ top: 20, right: 30, left: 0, bottom: 0 }}
           >
             <defs>
@@ -41,7 +39,7 @@ export default function WaveChart() {
               </linearGradient>
             </defs>
             <XAxis
-              dataKey="name"
+              dataKey="month"
               className="text-sm fill-gray-500 dark:fill-gray-400"
             />
             <YAxis className="text-sm fill-gray-500 dark:fill-gray-400" />
@@ -49,7 +47,7 @@ export default function WaveChart() {
             <Tooltip />
             <Area
               type="monotone"
-              dataKey="value"
+              dataKey="totalRevenue"
               stroke="#2F9FA4"
               fillOpacity={1}
               fill="url(#waveColor)"

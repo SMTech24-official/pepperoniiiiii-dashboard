@@ -35,7 +35,9 @@ const MyProfile = () => {
           </div>
           <div className="text-start ">
             <h3 className="md:text-[25px] text-xl font-semibold">Email</h3>
-            <p className="md:text-2xl text-[#0C0B2199]">{userData?.email}ariklee@gmail.com</p>
+            <p className="md:text-2xl text-[#0C0B2199]">
+              {userData?.email}ariklee@gmail.com
+            </p>
           </div>
           <div className="text-start">
             <h3 className="md:text-[25px] text-xl font-semibold">Mobile No</h3>

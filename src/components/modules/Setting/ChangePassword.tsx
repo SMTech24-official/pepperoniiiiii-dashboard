@@ -1,6 +1,5 @@
 import Image from "next/image";
 import lock from "../../../assets/images/lock.png";
-import ChangePasswordForm from "../Auth/ChangePasswordForm";
 
 const ChangePassword = () => {
   return (
@@ -17,7 +16,7 @@ const ChangePassword = () => {
 
         <div className="flex md:flex-row flex-col-reverse items-center justify-center md:gap-3 gap-2">
           <div className="md:w-1/2 w-full">
-            <ChangePasswordForm />
+            {/* <ChangePasswordForm /> */}
           </div>
           <div className="md:w-1/2 w-full">
             <Image src={lock} alt="lock" height={1000} width={1000} />

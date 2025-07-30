@@ -1,11 +1,11 @@
 import LatestOrders from "@/components/modules/Dashboard/LatestOrders";
+import OverView from "@/components/modules/Dashboard/OverView";
 import WaveChart from "@/components/modules/Dashboard/WaveChart";
-import PageHeader from "@/components/shared/PageHeader";
 
 const CommonLayoutHomePage = () => {
   return (
     <div>
-      <PageHeader title="Dashboard"/>
+      <OverView />
       <WaveChart />
       <LatestOrders />
     </div>
